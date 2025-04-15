@@ -298,7 +298,9 @@ class InceptionResnetV1(nn.Module):
         if self.classify:
             x = self.logits(x)
         else:
-            x = F.normalize(x, p=2, dim=1)
+            # Return un-normalised embeddings
+            return x
+            # x = F.normalize(x, p=2, dim=1)
         return x
 
 
